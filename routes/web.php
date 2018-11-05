@@ -12,7 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+	// get listing
+	$attractions = app('App\Http\Controllers\AttractionController')->listing();
+
+        return view('welcome',compact('attractions'))
+
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+    //return view('welcome');
 });
 
 Auth::routes();

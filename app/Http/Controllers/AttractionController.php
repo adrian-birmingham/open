@@ -121,4 +121,16 @@ class AttractionController extends Controller
                         ->with('success','Attraction deleted successfully');
 
     }
+
+    /**
+     * gET a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function listing()
+    {
+        $attractions = Attraction::latest()->paginate(5);
+
+	return $attractions;
+    }
 }

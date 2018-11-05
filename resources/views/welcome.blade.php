@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Attractions - Welcome</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -41,6 +43,8 @@
             }
 
             .content {
+                position: absolute;
+                top: 48px;
                 text-align: center;
             }
 
@@ -69,6 +73,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,16 +86,40 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Attractions
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div>
+ <table class="table table-bordered">
+
+        <tr>
+
+            <th>No</th>
+
+            <th>Name</th>
+    
+
+        </tr>
+
+        @foreach ($attractions as $attraction)
+
+        <tr>
+
+            <td>{{ ++$i }}</td>
+
+            <td>{{ $attraction->name }}</td>
+
+            
+
+
+        </tr>
+
+        @endforeach
+
+    </table>
+
+{!! $attractions->links() !!}
+
                 </div>
             </div>
         </div>
