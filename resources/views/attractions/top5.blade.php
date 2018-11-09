@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Top 5 Reviews.</div>
 <!--
                 <div class="card-body">
                     @if (session('status'))
@@ -19,17 +19,25 @@
 
 			<table class="table table-bordered">
 
+			    <td>Attraction</td>
 
+			    <td>Average rating</td>
 
-			@foreach ($attractions as $attraction)
+			    <td>No. of Reviews</td>
+
+			@foreach ($finalTop5 as $item)
 
 			<tr>
 
 		
 
-			    <td>{{ $attraction->name }}</td>
+			    <td>{{ $item['name'] }}</td>
 
-			    <td> <a href="reviews/commment/{{ $attraction->id }}">Review</a></td>
+			    <td>{{ $item['average'] }}</td>
+
+			    <td>{{ $item['count'] }}</td>
+
+			    
 
 
 			</tr>
@@ -37,8 +45,6 @@
 			@endforeach
 
 		    </table>
-
-		{!! $attractions->links() !!}
 
 
                 </div>

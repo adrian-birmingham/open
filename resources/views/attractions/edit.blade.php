@@ -1,8 +1,7 @@
-@extends('attractions.layout')
-
-   
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
 
     <div class="row">
 
@@ -71,6 +70,26 @@
             </div>
 
 
+
+        <strong>Approved:</strong>
+
+        <div>
+            <input type="radio" id="yes"
+                   name="approved" value="1" {{ ($attraction->approved =='1') ? 'checked' : '' }}/>
+            <label for="yes">Yes: </label>
+        </div>
+
+        <div>
+            <input type="radio" id="no"
+                   name="approved" value="0" {{ ($attraction->approved =='0') ? 'checked' : '' }}/>
+            <label for="no">No: </label>
+        </div>
+
+
+  
+
+
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -82,5 +101,5 @@
    
 
     </form>
-
+</div>
 @endsection

@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+	$attractions = app('App\Http\Controllers\AttractionController')->rawListing();
+
+	return view('home',compact('attractions'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 }

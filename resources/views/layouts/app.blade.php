@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+	
 </head>
 <body>
     <div id="app">
@@ -49,17 +51,25 @@
                                 @endif
                             </li>
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Menu <span class="caret"></span>
-                                </a>
+<!-- menu -->
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/attractions') }}">
-					Attractions
-                                    </a>
-                                </div>
-                            </li>
+		<ul class="navbar-nav mr-auto">
+			  <li class="nav-item active">
+			    <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
+			  </li>
+		      <li class="nav-item dropdown">
+			    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+			    <div class="dropdown-menu" aria-labelledby="dropdown01">
+			@if (\Auth::user()->is_admin ==1) 
+			      <a class="dropdown-item" href="{{ url('/attractions') }}">Attractions</a>
+			      <a class="dropdown-item" href="{{ url('/reviews') }}">Reviews</a>
+			@endif
+
+			      <a class="dropdown-item" href="{{ url('/attractions/top5') }}">Top 5 listing</a>
+			    </div>
+		 </ul>
+
+<!-- end menu -->
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -1,7 +1,7 @@
-@extends('reviews.layout')
-
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
 
     <div class="row">
 
@@ -31,9 +31,9 @@
 
             <div class="form-group">
 
-                <strong>Name:</strong>
+                <strong>Review:</strong>
 
-                {{ $review->name }}
+                {{ $review->review }}
 
             </div>
 
@@ -41,5 +41,5 @@
 
 
     </div>
-
+</div>
 @endsection

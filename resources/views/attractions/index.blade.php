@@ -1,8 +1,7 @@
-@extends('attractions.layout')
-
- 
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
 
     <div class="row">
 
@@ -97,6 +96,6 @@
 
     {!! $attractions->links() !!}
 
-      
+  </div>    
 
 @endsection

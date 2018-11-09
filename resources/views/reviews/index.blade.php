@@ -1,9 +1,7 @@
-@extends('reviews.layout')
-
- 
+@extends('layouts.app')
 
 @section('content')
-
+<div class="container">
     <div class="row">
 
         <div class="col-lg-12 margin-tb">
@@ -14,16 +12,9 @@
 
             </div>
 
-            <div class="pull-right">
-
-                <a class="btn btn-success" href="{{ route('reviews.create') }}"> Create New review</a>
-
-            </div>
-
         </div>
 
     </div>
-
    
 
     @if ($message = Session::get('success'))
@@ -36,17 +27,18 @@
 
     @endif
 
-   
-
+  
     <table class="table table-bordered">
 
         <tr>
 
             <th>No</th>
 
-            <th>Name</th>
+            <th>Review</th>
 
-            
+            <th>Rating</th>
+
+            <th>Approved</th>
 
             <th width="280px">Action</th>
 
@@ -58,8 +50,11 @@
 
             <td>{{ ++$i }}</td>
 
-            <td>{{ $review->name }}</td>
+            <td>{{ $review->review }}</td>
 
+            <td>{{ $review->rating }}</td>
+	    
+	    <td>@if($review->approved =='1') Yes @endif</td>
             
             <td>
 
@@ -73,7 +68,7 @@
 
                     <a class="btn btn-primary" href="{{ route('reviews.edit',$review->id) }}">Edit</a>
 
-   
+
 
                     @csrf
 
@@ -97,6 +92,6 @@
 
     {!! $reviews->links() !!}
 
-      
+ </div>	     
 
 @endsection

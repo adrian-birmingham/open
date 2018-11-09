@@ -12,10 +12,7 @@ class Attraction extends Model
      * @var array
      */
     protected $fillable = [
-        'review', 'approved',
-	'attraction_id', 'approved',
-	'uers_id', 'approved',
-	'rating', 'approved',
+        'name', 'approved',
     ];
 }
 

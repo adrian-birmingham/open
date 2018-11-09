@@ -1,8 +1,7 @@
-@extends('reviews.layout')
-
-  
+@extends('layouts.app')
 
 @section('content')
+<div class="container">
 
 <div class="row">
 
@@ -96,8 +95,11 @@
 
     </div>
 
-	 <input type="hidden" id="attraction_id" name="attraction_id" value="3487">
+   	  <input type="hidden" id="attraction_id" name="attraction_id" value="{{ $data->attraction_id }}">
+
+	  <input type="hidden" id="user_id" name="user_id" value="{{ $data->user_id }}">
+
 
 </form>
-
+</div>
 @endsection

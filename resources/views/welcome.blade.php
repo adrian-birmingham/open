@@ -88,24 +88,20 @@
                 <div class="title m-b-md">
                     Attractions
                 </div>
+                <div>
+                    (Register or login to review Attractions)
+                </div>
 
                 <div>
  <table class="table table-bordered">
 
-        <tr>
 
-            <th>No</th>
-
-            <th>Name</th>
-    
-
-        </tr>
 
         @foreach ($attractions as $attraction)
 
         <tr>
 
-            <td>{{ ++$i }}</td>
+        
 
             <td>{{ $attraction->name }}</td>
 
